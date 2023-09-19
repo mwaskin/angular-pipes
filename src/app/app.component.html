@@ -67,6 +67,9 @@
           {{ server.started | date : "fullDate" | uppercase }}
         </li>
       </ul>
+      <hr />
+      <input type="text" [(ngModel)]="wordToReverse" />
+      <h3>{{ wordToReverse | reverse }}</h3>
     </div>
   </div>
 </div>

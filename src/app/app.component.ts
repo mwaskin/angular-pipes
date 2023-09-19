@@ -38,6 +38,7 @@ export class AppComponent {
     },
   ];
   filteredStatus = '';
+  wordToReverse = '';
 
   getStatusClasses(server: {
     instanceType: string;
