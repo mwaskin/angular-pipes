@@ -22,7 +22,7 @@
 -->
 
 <!-- CUSTOM PIPES
-  -- create a new file in the appropriate directory (.../app/shorten.pipe.ts)
+  -- create a new file in the appropriate directory (.../app/shorten.pipe.ts) (CLI: ng generate pipe pipeName || ng g p pipeName)
   -- export a class (ShortenPipe)
   -- the class needs to implement PipeTransform, which has a method called transform()
     -- transform must be passed a value, and any amount of optional arguments, which represent the parameters passed to the pipe when it's called
@@ -30,6 +30,12 @@
   -- add the @Pipe decorator to the class and pass it a JS object
     -- must at least give it a name that acts as the selector (shorten)
     -- register the pipe by adding it to the declarations array in AppModule
+-->
+
+<!-- PURE PIPES
+  -- by default, pipes are configured as 'pure,' meaning it's transform() method is only invoked when its input arguments change
+  -- setting 'pure: false' in the @Pipe decorator config, the pipe is invokes on every change-cycle
+  -- USE ONLY WHEN NEEDED - CAN HAVE SIGNIFICANT EFFECT ON PERFORMANCE
 -->
 
 <div class="container">
