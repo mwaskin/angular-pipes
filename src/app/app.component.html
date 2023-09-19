@@ -38,6 +38,10 @@
   -- USE ONLY WHEN NEEDED - CAN HAVE SIGNIFICANT EFFECT ON PERFORMANCE
 -->
 
+<!-- ASYNC PIPE
+  -- when outputing async data, the async pipe automatically updates the output when the promise resolves or automatically subscribes to an Observable
+-->
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
@@ -46,6 +50,8 @@
       <button class="btn btn-primary" (click)="onAddServer()">
         Add Server
       </button>
+      <br /><br />
+      <h2>App Status: {{ appStatus | async }}</h2>
       <hr />
       <ul class="list-group">
         <li
