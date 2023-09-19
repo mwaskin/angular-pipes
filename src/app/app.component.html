@@ -1,3 +1,6 @@
+<!-- Pipes transform the output of data, so, naturally, they are added to where data is output in the template -->
+<!-- add a pipe using the | symbol (below backspace) and passing it the name of a built-in or custom-made pipe -->
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
@@ -5,12 +8,13 @@
         <li
           class="list-group-item"
           *ngFor="let server of servers"
-          [ngClass]="getStatusClasses(server)">
-          <span
-            class="badge">
+          [ngClass]="getStatusClasses(server)"
+        >
+          <span class="badge">
             {{ server.status }}
           </span>
-          <strong>{{ server.name }}</strong> | {{ server.instanceType }} | {{ server.started }}
+          <strong>{{ server.name }}</strong> |
+          {{ server.instanceType | uppercase }} | {{ server.started | date }}
         </li>
       </ul>
     </div>
