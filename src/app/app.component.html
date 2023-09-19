@@ -21,6 +21,17 @@
       -- uppercase pipe must come second because it can only be applied to strings, and {{server.started}} outputs a Date object until the date pipe transforms the output to a string
 -->
 
+<!-- CUSTOM PIPES
+  -- create a new file in the appropriate directory (.../app/shorten.pipe.ts)
+  -- export a class (ShortenPipe)
+  -- the class needs to implement PipeTransform, which has a method called transform()
+    -- transform must be passed a value, and optionally an array an arguments
+    -- Example: ShortenPipe takes a value (the server name) and if it's longer than 10 characters, it only returns a substring of the first 10 characters
+  -- add the @Pipe decorator to the class and pass it a JS object
+    -- must at least give it a name that acts as the selector (shorten)
+    -- register the pipe by adding it to the declarations array in AppModule
+-->
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
@@ -33,7 +44,7 @@
           <span class="badge">
             {{ server.status }}
           </span>
-          <strong>{{ server.name }}</strong> |
+          <strong>{{ server.name | shorten }}</strong> |
           {{ server.instanceType | uppercase }} |
           {{ server.started | date : "fullDate" | uppercase }}
         </li>
