@@ -25,7 +25,7 @@
   -- create a new file in the appropriate directory (.../app/shorten.pipe.ts)
   -- export a class (ShortenPipe)
   -- the class needs to implement PipeTransform, which has a method called transform()
-    -- transform must be passed a value, and optionally an array an arguments
+    -- transform must be passed a value, and any amount of optional arguments, which represent the parameters passed to the pipe when it's called
     -- Example: ShortenPipe takes a value (the server name) and if it's longer than 10 characters, it only returns a substring of the first 10 characters
   -- add the @Pipe decorator to the class and pass it a JS object
     -- must at least give it a name that acts as the selector (shorten)
@@ -44,7 +44,7 @@
           <span class="badge">
             {{ server.status }}
           </span>
-          <strong>{{ server.name | shorten }}</strong> |
+          <strong>{{ server.name | shorten : 15 }}</strong> |
           {{ server.instanceType | uppercase }} |
           {{ server.started | date : "fullDate" | uppercase }}
         </li>
