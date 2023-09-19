@@ -1,3 +1,5 @@
+<!-- REFERENCE: https://angular.io/api?type=pipe -->
+
 <!-- USING PIPES:
   -- Pipes transform the output of data, so, naturally, they are added to where data is output in the template
   -- Add a pipe using the | symbol (below backspace) and passing it the name of a built-in or custom-made pipe
@@ -5,10 +7,18 @@
     -- Date object output by {{ server.started }} outputs the full timestamp date
     -- | date pipe outputs the date in the more traditional format (August 9, 1920)
 -->
+
 <!-- PARAMETRIZING PIPES:
   -- Pipes can take parameters that provide options for how the pipe transforms the data
   -- add parameters to the pipe by separating them with colons :
     -- Ex. date:'fullDate' adds the day of the week to the date (Monday, August 9, 1920)
+-->
+
+<!-- CHAINING PIPES
+  -- chain together pipes by adding another | symbol
+  -- order does matter though
+    -- Example: {{ server.started | date : "fullDate" | uppercase }}
+      -- uppercase pipe must come second because it can only be applied to strings, and {{server.started}} outputs a Date object until the date pipe transforms the output to a string
 -->
 
 <div class="container">
@@ -25,7 +35,7 @@
           </span>
           <strong>{{ server.name }}</strong> |
           {{ server.instanceType | uppercase }} |
-          {{ server.started | date : "fullDate" }}
+          {{ server.started | date : "fullDate" | uppercase }}
         </li>
       </ul>
     </div>
